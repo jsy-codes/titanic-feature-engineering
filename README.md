@@ -21,3 +21,24 @@ jupyter notebook titanic_feature_engineering.ipynb   # 위에서부터 순서대
 - 전처리는 `Pipeline` + `ColumnTransformer`로 구성해 학습 fold로만 fit (데이터 누수 방지)
 - 비교 항목: 결측치(Mean/Median/Most Frequent/Drop NA), 인코딩(One-Hot/Label), 스케일링(None/Standard/MinMax/Robust), 파생 변수 6종 Ablation, 변수 선택(RF 중요도 top-N/SelectKBest/RFE)
 - 모델: Logistic Regression, Random Forest, XGBoost, LightGBM / 가산점: GridSearchCV, SHAP, Permutation Importance
+
+
+## 데이터셋
+
+**Titanic - Machine Learning from Disaster** (Kaggle)
+
+- **목적:** 승객 정보로 생존 여부 예측 (이진 분류)
+- **선정 이유:**
+  - 결측치 포함 (Age, Cabin, Embarked)
+  - 범주형 + 수치형 변수 혼합
+  - Feature Engineering 연습에 적합
+- **링크:** https://www.kaggle.com/competitions/titanic/data
+
+### 사용 데이터
+| 파일 | 크기 | 사용 여부 |
+|---|---|---|
+| `train.csv` | 891행 × 12열 | 사용 (학습 80% / 홀드아웃 20%로 분할) |
+| `test.csv` | 418행 | 미사용 (정답 Survived가 없어 평가 불가) |
+| `gender_submission.csv` | 418행 | 미사용 (Kaggle 제출 양식 예시) |
+
+> 데이터는 Kaggle에서 내려받아 `train.csv`를 노트북과 같은 폴더에 두세요.
